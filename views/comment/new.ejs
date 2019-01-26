@@ -1,0 +1,18 @@
+<%include ../partials/header%>
+<div class="maincontainer">
+    <br>
+    <h1>New Comments to <%= blog.title%></h1>
+    <br>
+    <form action="/blogs/<%=blog.id%>/comments" method="POST">
+      <div class="form-group">
+        <label>Comment Author</label>
+        <input type="text" class="form-control" name="comment[author]" placeholder="Author">
+      </div>
+      <div class="form-group">
+        <labe>Comment Body</label>
+        <input type="text" class="form-control" name="comment[text]" placeholder="Comment Content">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<%include ../partials/footer%>

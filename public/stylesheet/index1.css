@@ -1,0 +1,47 @@
+.container{
+    border-bottom: black 2px solid;
+}
+
+.center-container{
+    text-align:center;
+}
+.maincontainer{
+    margin:20%;
+    margin-top: 55px;
+    margin-bottom: 35px;
+}
+
+.inlineB{
+    display: inline-block;
+}
+
+.indexImg{
+    width: 300px;
+    margin: 35px;
+}
+.blog-title{
+    margin:25px;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+.align-right{
+    text-align: right;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.fixtop{
+    position:fixed;
+    top: 0;
+    width:100%;
+}
+
+#secdText{
+   background-color: #cccfd1; 
+   border-radius: 15px;
+   padding: 20px;
+   padding-bottom: 12px;
+}

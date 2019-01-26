@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+<div class="maincontainer">
+    <h1><%= blog.title %></h1>
+    
+    <div class="align-right">
+        <form action="/blogs/<%=blog.id %>?_method=DELETE" method="POST" class="inlineB">
+            <input type="submit" class="btn btn-warning" value="DELETE"/>
+        </form>
+        <form action="/blogs/<%=blog.id %>/edit" class="inlineB">
+            <input type="submit" class="btn btn-secondary" value="EDIT"/>
+        </form>
+    </div>
+    
+    <div class="container">
+        <% if(blog.img){ %>
+            <img src="<%=blog.img%>" class="indexImg">
+        <% } else{ %>
+            <i class="fab fa-d-and-d"></i>
+        <% }%>
+        <span><%- blog.body%></span>
+    </div>
+    
+    <% if(blog.comments){ %>
+        <br>
+        <div id="secdText">
+            <h3 class="underline">Comments:</h3>
+            <br>
+            <div>
+                <% blog.comments.forEach(function(cmt) {%>
+                <p><strong><%=cmt.author%></strong>: <%=cmt.text%></p>
+                <% }); %>
+            </div>
+        </div>
+    <% }else{%>
+        <i class="fab fa-d-and-d"></i>
+    <% }%>
+    <br>
+    <div class="text-right">
+        <a class="btn btn-success" href="/blogs/<%=blog.id%>/comments/new"> Add New Comment </a>
+    </div>
+</div>
+
+<% include ../partials/footer %>

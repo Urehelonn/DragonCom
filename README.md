@@ -16,15 +16,20 @@
     
     v1.00
     This Version only reqires user to be able to create new post, check new post from index page, delete existing page, and update existing page.
+    Also need functions about commenting, no signin needed for now.
     Restful Routing map below:
     
     Name                Path                Http Verb           Mongoose Method             Purpose
     -------------------------------------------------------------------------------------------------------------------------------
-    Index               /blogs              GET                 Blog.find({})               List all posts.
-    New                 /blogs/new          GET                 N/A                         Form to add new blog.
-    Create              /blogs              POST                Blog.create({blog})         Add new blog from page new to database.
-    Show                /blogs/:id          GET                 Blog.findById()             Show blog detail.
-    Edit                /blogs/:id/edit     GET                 Blog.findById()             Edit certain blog.
-    Update              /blogs/:id          PUT                 Blog.findByIdAndUpdate()    After edit, update that blog.
-    Delete              /blogs/:id          DELETE              Blog.findByIdAndRemove()    Remove certain blog.
+    Index               /blogs                  GET                 Blog.find({})               List all posts.
+    New                 /blogs/new              GET                 N/A                         Form to add new blog.
+    Create              /blogs                  POST                Blog.create({blog})         Add new blog from page new to database.
+    Show                /blogs/:id              GET                 Blog.findById()             Show blog detail.
+    Edit                /blogs/:id/edit         GET                 Blog.findById()             Edit certain blog.
+    Update              /blogs/:id              PUT                 Blog.findByIdAndUpdate()    After edit, update that blog.
+    Delete              /blogs/:id              DELETE              Blog.findByIdAndRemove()    Remove certain blog.
+    
+    Comments:
+    NEW             /blogs/:id/comments/new     GET                 Blog.findById()             Form to add new comment.
+    CREAT           /blogs/:id/comments         POST                Blog.findById()             Add new comment.
     

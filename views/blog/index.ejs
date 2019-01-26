@@ -1,0 +1,22 @@
+<%include ../partials/header%>
+
+<div class="maincontainer">
+    <% blogs.forEach(function(blog) {%>
+    <div class="container">
+        <h2 class="blog-title"><%=blog.title%></h3>
+        <div class="center-container">
+            <% if(blog.img){ %>
+            <p><img src="<%=blog.img%>" class="indexImg"></p>
+            <% } else{ %>
+            <i class="fab fa-d-and-d"></i>
+            <% }%>
+        </div>
+        -- <%=blog.body%>
+        <div class="align-right">
+            <a href="/blogs/<%= blog.id %>" class="btn btn-secondary">Show More</a>
+        </div>
+        <br>
+    </div>
+    <% });%>
+</div>
+<%include ../partials/footer%>

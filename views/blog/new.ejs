@@ -1,0 +1,23 @@
+<%include ../partials/header%>
+<div class="maincontainer">
+    <br>
+    <h1>New Post</h1>
+    <br>
+    <form action="/blogs" method="POST">
+      <div class="form-group">
+        <label>Blog Title</label>
+        <input type="text" class="form-control" name="blog[title]" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <labe>Blog Body</label>
+        <input type="text" class="form-control" name="blog[body]" placeholder="Body">
+      </div>
+      <div class="form-group">
+        <label>Image</label>
+        <input type="text" class="form-control" name="blog[img]" placeholder="Image Link">
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+
+<%include ../partials/footer%>
