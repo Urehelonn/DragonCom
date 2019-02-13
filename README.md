@@ -14,7 +14,7 @@
     6. Every dragons information are stored in the database.
     
     
-    v1.00
+    v1
     This Version only reqires user to be able to create new post, check new post from index page, delete existing page, and update existing page.
     Also need functions about commenting, no signin needed for now.
     Restful Routing map below:
@@ -33,3 +33,16 @@
     NEW             /blogs/:id/comments/new     GET                 Blog.findById()             Form to add new comment.
     CREAT           /blogs/:id/comments         POST                Blog.findById()             Add new comment.
     
+    
+     v2
+     Based on v1, add authentication, and user database and so on.
+         2.13: v2 finished
+             The user database is created, and use passport-local-mongoose for encryption.
+             User only see blogs after login, and abled signup function, also logout.
+             
+    
+     v3
+     Based on v2, add more aboud user, with detailed user information, and link to check each states or the other user's public information.
+        
+        v3.00
+        Create proper UserInfo mongoose model, and import.
