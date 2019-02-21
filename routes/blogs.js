@@ -20,7 +20,7 @@ router.get("/", isLoggedIn, function(req,res){
 });
 //new route
 router.get("/new", isLoggedIn, function(req,res){
-    res.render("blog/new");
+    res.render("blog/new", {currUser: req.user});
 });
 //create route
 router.post("/", isLoggedIn, function(req,res){
@@ -31,6 +31,10 @@ router.post("/", isLoggedIn, function(req,res){
             res.send(err);
         }
         else{
+            console.log(req.user.username);
+            nblog.author.id = req.user.id;
+            nblog.author.name = req.user.username;
+            nblog.save();
             res.redirect("/blogs");
         }
     });
@@ -42,10 +46,12 @@ router.get("/:id", isLoggedIn, function(req,res){
             res.send(err);
         }
         else{
+            console.log(blog.author.name);
             res.render("blog/show", {blog, currUser: req.user});
         }
     });
 });
+
 //edit route
 router.get("/:id/edit", isLoggedIn, function(req,res){
     Blog.findById(req.params.id, function(err, blog){
@@ -59,19 +65,27 @@ router.get("/:id/edit", isLoggedIn, function(req,res){
 });
 //update route
 router.put("/:id", isLoggedIn, function(req,res){
+    console.log("????");
+    res.send("fkfkfkfkfk");
     //update blog
-    req.body.blog.body=req.sanitize(req.body.blog.body);
-    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, nblog){
-        if(err){
-            res.send(err);
-        }
-        else{
-            res.redirect("/blogs/"+req.params.id);
-        }
-    });
+    // req.body.blog.body=req.sanitize(req.body.blog.body);
+    // Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, nblog){
+    //     if(err){
+    //         res.send(err);
+    //     }
+    //     else{
+    //         res.redirect("/blogs/"+req.params.id);
+    //     }
+    // });
 });
 //delete route
 router.delete("/:id", isLoggedIn, function(req,res){
+    //remove every comments under the blog
+    
+                    //dfgsdcv
+                    //asdrgsdfg
+    
+    //remove blog
     Blog.findByIdAndRemove(req.params.id, function(err, blog){
         if(err){
             res.send(err);

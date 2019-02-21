@@ -23,8 +23,8 @@ var seed = require("./seed");
 //app setting
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(bodyparser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+app.use(bodyparser.urlencoded({extended: true}));
 app.use(sanitizer());
 
 //mongoose setting
@@ -65,6 +65,18 @@ app.use("/", authRoutes);
 app.get("/",function(req,res){
     res.redirect("/blogs");
 });
+
+
+//=============================
+//FUNCTIONS
+//=============================
+//redirect function
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 //=============================
 //LISTENING

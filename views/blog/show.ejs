@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 <div class="maincontainer">
     <h1><%= blog.title %></h1>
-    
+    <h4><%= blog.author.name %></h4>
     <div class="align-right">
         <form action="/blogs/<%=blog.id %>?_method=DELETE" method="POST" class="inlineB">
             <input type="submit" class="btn btn-warning" value="DELETE"/>
@@ -27,7 +27,12 @@
             <br>
             <div>
                 <% blog.comments.forEach(function(cmt) {%>
-                <p><strong><%=cmt.author%></strong>: <%=cmt.text%></p>
+                <div class="cmt">
+                    <strong><%=cmt.author.username%></strong>: <%=cmt.text%>
+                    <form action="/blogs/<%=blog.id %>/comments/<%=cmt.id %>?_method=DELETE" method="POST" class="commentBt">
+                        <input type="submit" class="btn btn-warning" value="Delete"/>
+                    </form>
+                </div>
                 <% }); %>
             </div>
         </div>

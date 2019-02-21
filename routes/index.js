@@ -41,16 +41,6 @@ router.get('/logout', function(req,res){
     res.redirect('/');
 });
 
-//=============================
-//FUNCTIONS
-//=============================
-//redirect function
-function isLoggedIn(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login");
-}
 
 //exports
 module.exports = router;

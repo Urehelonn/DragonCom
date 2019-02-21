@@ -39,10 +39,22 @@
          2.13: v2 finished
              The user database is created, and use passport-local-mongoose for encryption.
              User only see blogs after login, and abled signup function, also logout.
-             
+         1* Search function not done.
     
      v3
      Based on v2, add more aboud user, with detailed user information, and link to check each states or the other user's public information.
         
         v3.00
         Create proper UserInfo mongoose model, and import.
+        
+        v3.01
+        Associate the user with comments, so user don't have to type their own username to create comments.
+        2* Edit lost it's functionalities.
+        3* When delete blogs, all comments are still in DB.
+        
+        v3.02
+        Delete button for each comments added.
+        4* Delete button should only be accessed by author of the blog.
+        
+        v3.03
+        Associate username to the author of the blog.
