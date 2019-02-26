@@ -58,3 +58,25 @@
         
         v3.03
         Associate username to the author of the blog.
+        
+        v3.04
+        2* fixed, edit avaliable now.
+        Only able to edit or delete blog by the author, or delete comment under the blog.
+        4* fixed, comments can be only deleted by the author of the blog.
+        
+        v3.05
+        All middleware refactored, and implemented correctly.
+        Update on userInfo, and create basic pages for user views
+        
+        v3.06
+        User view page v1 should only have some simple info, including user name, user avatar, id, account created time and name displayed.
+        
+        v3.062
+        3* Cannot fully apply UserInfo onto User
+        *1, 2, 3 in problem stack.
+        
+        
+    v4
+    Based on v3 functions, try to improve user exprence.
+    
+        v4.01

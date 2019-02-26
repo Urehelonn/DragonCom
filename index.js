@@ -10,6 +10,7 @@ var sanitizer = require("express-sanitizer");
 var commentRoutes = require("./routes/comments");
 var blogRoutes = require("./routes/blogs");
 var authRoutes = require("./routes/index");
+var userRoutes = require("./routes/user")
 
 //auth
 var passport = require("passport");
@@ -18,6 +19,7 @@ var passportLocalMongoose = require("passport-local-mongoose");
 var expressSession = require("express-session");
 
 //extra
+var middleware = require("./middleware");
 var seed = require("./seed");
 
 //app setting
@@ -33,7 +35,7 @@ mongoose.set('useFindAndModify', false);
 
 //mongoose model
 var Blog = require("./models/post");
-// var UserInfo = require("./models/userInfo");
+var UserInfo = require("./models/userInfo");
 var User = require("./models/user");
 var Comment = require("./models/comments")
 
@@ -58,6 +60,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use("/blogs", blogRoutes);
 app.use("/blogs/:id/comments", commentRoutes);
 app.use("/", authRoutes);
+app.use("/user", userRoutes);
 
 //=============================
 //BASE ROUTE
