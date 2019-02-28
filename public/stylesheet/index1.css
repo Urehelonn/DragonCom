@@ -56,6 +56,10 @@
     margin-left: auto;
 }
 
+.alert{
+    margin: auto;
+    width: 60%;
+}
 
 #secdText{
    background-color: #cccfd1; 
@@ -64,3 +68,6 @@
    padding-bottom: 12px;
 }
 
+p{
+    margin: auto;
+}

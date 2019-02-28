@@ -5,6 +5,7 @@ var bodyparser = require("body-parser");
 var mongoose = require("mongoose");
 var methodOverride = require("method-override");
 var sanitizer = require("express-sanitizer");
+var flash = require("connect-flash");
 
 //routes
 var commentRoutes = require("./routes/comments");
@@ -28,6 +29,7 @@ app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(sanitizer());
+app.use(flash());
 
 //mongoose setting
 mongoose.connect("mongodb://localhost:27017/dragoncom", { useNewUrlParser: true });
@@ -50,10 +52,17 @@ app.use(expressSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
 passport.use(new passportLocal(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+//local stored variables
+app.use(function(req,res,next){
+    res.locals.currUser = req.user;
+    res.locals.error = req.flash("err");
+    res.locals.success = req.flash("success");
+    next();
+});
 
 
 //routes import
@@ -69,17 +78,6 @@ app.get("/",function(req,res){
     res.redirect("/blogs");
 });
 
-
-//=============================
-//FUNCTIONS
-//=============================
-//redirect function
-function isLoggedIn(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login");
-}
 
 //=============================
 //LISTENING

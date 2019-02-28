@@ -15,6 +15,7 @@ middlewareObj.isLoggedIn = function (req,res,next){
     if(req.isAuthenticated()){
         return next();
     }
+    req.flash("err", "Please log in first.");
     res.redirect("/login");
 }
 
@@ -29,19 +30,17 @@ middlewareObj.isAuthor = function (req,res,next){
             }
             else{
                 //if is the author
-                // console.log(blog.author.id.equals(req.user.id));
                 if(blog.author.id.equals(req.user.id)){
                     return next();
                 }
                 else{
-                    //console.log("not the author, send back");
                     res.redirect("back");
                 }
             }
         });
     }
     else{
-        //console.log("not logged in, send back");
+        req.flash("err", "Please log in first.");
         res.redirect("back");
     }
 }

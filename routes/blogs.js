@@ -35,6 +35,7 @@ router.post("/", middleware.isLoggedIn, function(req,res){
             nblog.author.id = req.user.id;
             nblog.author.name = req.user.username;
             nblog.save();
+            req.flash("success", "Post Created!");
             res.redirect("/blogs");
         }
     });
@@ -73,6 +74,7 @@ router.put("/:id", middleware.isAuthor, function(req,res){
             res.send(err);
         }
         else{
+            req.flash("success", "Post Updated!");
             //redirect
             res.redirect("/blogs/"+req.params.id);
         }
@@ -92,6 +94,7 @@ router.delete("/:id", middleware.isAuthor, function(req,res){
             res.send(err);
         }
         else{
+            req.flash("success", "Post Deleted!");
             res.redirect("/blogs");
         }
     });

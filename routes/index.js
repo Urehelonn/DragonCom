@@ -30,7 +30,7 @@ router.post('/signup', function(req,res){
             
     User.register(newUser, req.body.password, function(err, user){
         if(err){
-            console.log(err);
+            req.flash("err",err.message);
             return res.redirect('signup');
         }
         else{
@@ -59,17 +59,18 @@ router.post('/signup', function(req,res){
 router.get('/login', function(req,res){
     res.render('auth/login', {currUser: req.user});
 });
+
 //log in
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/blogs',
-    failureRedirect: '/signup',
-}), function(req,res){
+    failureRedirect: '/signup'}), function(req,res){
 });
 
 //logout
 router.get('/logout', function(req,res){
     req.logout();
-    res.redirect('/');
+    req.flash("success", "Logged Out!");
+    res.redirect('/login');
 });
 
 

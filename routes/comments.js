@@ -36,6 +36,7 @@ router.post("/", middleware.isLoggedIn, function(req,res){
                     //push comment to blog
                     blog.comments.push(cmt);
                     blog.save();
+                    req.flash("success", "Comment Created!");
                     //redirect to blog detail
                     res.redirect("/blogs/"+blog.id);
                 }
@@ -52,6 +53,7 @@ router.delete("/:cmtid", middleware.isAuthor, function(req,res){
             console.log(err);
         }
         else{
+            req.flash("success", "Comment Deleted!");
             res.redirect("/blogs/"+req.params.id);
         }
     })

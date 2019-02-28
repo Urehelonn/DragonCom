@@ -80,3 +80,8 @@
     Based on v3 functions, try to improve user exprence.
     
         v4.01
+        Install and configure connect-flash, add bootstrap alerts to header.
+        
+        v4.02
+        Add error message and success message alert to present user some console info. v4 done.
+        
