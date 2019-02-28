@@ -85,3 +85,5 @@
         v4.02
         Add error message and success message alert to present user some console info. v4 done.
         
+    v5
+        v5.01 Fix git config.
