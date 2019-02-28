@@ -3,8 +3,8 @@
     <br>
     <h1>Edit Post</h1>
     <br>
-    <form>
-      <div class="form-group" action="/blogs/<%=blog.id%>?_method=PUT" method="POST">
+    <form action="/blogs/<%=blog.id%>/?_method=PUT" method="POST">
+      <div class="form-group">
         <label>Blog Title</label>
         <input type="text" class="form-control" name="blog[title]" value="<%=blog.title%>">
       </div>

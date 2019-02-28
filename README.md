@@ -39,10 +39,51 @@
          2.13: v2 finished
              The user database is created, and use passport-local-mongoose for encryption.
              User only see blogs after login, and abled signup function, also logout.
-             
+         1* Search function not done.
     
      v3
      Based on v2, add more aboud user, with detailed user information, and link to check each states or the other user's public information.
         
         v3.00
         Create proper UserInfo mongoose model, and import.
+        
+        v3.01
+        Associate the user with comments, so user don't have to type their own username to create comments.
+        2* Edit lost it's functionalities.
+        3* When delete blogs, all comments are still in DB.
+        
+        v3.02
+        Delete button for each comments added.
+        4* Delete button should only be accessed by author of the blog.
+        
+        v3.03
+        Associate username to the author of the blog.
+        
+        v3.04
+        2* fixed, edit avaliable now.
+        Only able to edit or delete blog by the author, or delete comment under the blog.
+        4* fixed, comments can be only deleted by the author of the blog.
+        
+        v3.05
+        All middleware refactored, and implemented correctly.
+        Update on userInfo, and create basic pages for user views
+        
+        v3.06
+        User view page v1 should only have some simple info, including user name, user avatar, id, account created time and name displayed.
+        
+        v3.062
+        3* Cannot fully apply UserInfo onto User
+        *1, 2, 3 in problem stack.
+        
+        
+    v4
+    Based on v3 functions, try to improve user exprence.
+    
+        v4.01
+        Install and configure connect-flash, add bootstrap alerts to header.
+        
+        v4.02
+        Add error message and success message alert to present user some console info. v4 done.
+        
+    v5
+        v5.01 Fix git config.

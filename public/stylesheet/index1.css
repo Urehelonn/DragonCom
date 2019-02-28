@@ -39,9 +39,35 @@
     width:100%;
 }
 
+.cmt{
+    display: flex;
+    padding: 8px;
+}
+
+.cmt:hover{
+    background-color: rgba(55, 36, 36, 0.2);
+}
+
+.commentBt{
+    margin: 0px;
+    padding: 10px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    margin-left: auto;
+}
+
+.alert{
+    margin: auto;
+    width: 60%;
+}
+
 #secdText{
    background-color: #cccfd1; 
    border-radius: 15px;
    padding: 20px;
    padding-bottom: 12px;
+}
+
+p{
+    margin: auto;
 }
